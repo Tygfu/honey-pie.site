@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Honey Pie Guild - Albion Online</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://yt3.googleusercontent.com/ytc/AIdro_kaKZKM8n5SO5XvliS4TP13tfdM9RWJ9OY-0vlP1g=s176-c-k-c0x00ffffff-no-rj"/>
   <style>
     body {
       margin: 0;
@@ -27,6 +28,7 @@
     nav {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 30px;
       padding: 10px;
       background-color: #222;
@@ -106,6 +108,21 @@
       border: none;
       border-radius: 10px;
       margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      section {
+        padding: 20px 10px;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      iframe {
+        height: 250px;
+      }
     }
   </style>
 </head>
