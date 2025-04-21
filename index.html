@@ -6,6 +6,16 @@
   <title>Honey Pie Guild</title>
   <link rel="icon" href="/mnt/data/Avatar (HoneyPie).png" type="image/png">
   <style>
+    :root {
+      --bg-color: #111;
+      --text-color: #fff;
+      --accent-color: #ffc107;
+    }
+    body.light {
+      --bg-color: #fff;
+      --text-color: #111;
+      --accent-color: #d35400;
+    }
     * {
       scroll-behavior: smooth;
       margin: 0;
@@ -14,8 +24,9 @@
     }
     body {
       font-family: sans-serif;
-      background-color: #111;
-      color: #fff;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
     header {
       background-color: #000;
@@ -32,14 +43,17 @@
       height: 50px;
       border-radius: 50%;
     }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
     nav a {
-      margin-left: 20px;
-      color: #fff;
+      color: var(--text-color);
       text-decoration: none;
       font-weight: bold;
     }
     nav a:hover {
-      color: #ffc107;
+      color: var(--accent-color);
     }
     section {
       padding: 80px 20px 40px;
@@ -48,7 +62,7 @@
     }
     h2 {
       margin-bottom: 20px;
-      color: #ffc107;
+      color: var(--accent-color);
     }
     .video-container iframe {
       width: 100%;
@@ -62,13 +76,21 @@
       background-color: #000;
       color: #aaa;
     }
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-left: 20px;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
       nav {
-        display: flex;
         flex-direction: column;
         align-items: flex-start;
       }
@@ -79,39 +101,61 @@
   <header>
     <img src="/mnt/data/Avatar (HoneyPie).png" alt="Guild Logo">
     <nav>
-      <a href="#home">Головна</a>
-      <a href="#about">Про нас</a>
-      <a href="#videos">Наші відео</a>
-      <a href="#links">Інші сайти</a>
+      <a href="#home">Головна / Home</a>
+      <a href="#about">Про нас / About</a>
+      <a href="#videos">Наші відео / Videos</a>
+      <a href="#links">Інші сайти / Links</a>
+      <div class="controls">
+        <button onclick="toggleTheme()">🌓</button>
+        <button onclick="toggleLanguage()">🌐</button>
+      </div>
     </nav>
   </header>
 
-  <section id="home">
+  <main id="home">
     <section id="about">
-      <h2>Про нас / About Us</h2>
-      <p>
-        Ми — Honey Pie, українська PvP-гільдія в Albion Online. Основу гільдії складають досвідчені гравці з G2U, а очолює її один із офіцерів G2U. У сезоні ми здобули золото та не плануємо зупинятися. Ми спеціалізуємось на ZVZ, PvP і контенті у чорних зонах.
+      <h2 data-uk="Про нас" data-en="About Us">Про нас</h2>
+      <p data-uk="Ми — Honey Pie, українська PvP-гільдія в Albion Online. Основу гільдії складають досвідчені гравці з G2U, а очолює її один із офіцерів G2U. У сезоні ми здобули золото та не плануємо зупинятися. Ми спеціалізуємось на ZVZ, PvP і контенті у чорних зонах."
+         data-en="We are Honey Pie, a Ukrainian PvP guild in Albion Online. Our core is formed by experienced players from G2U, led by one of their officers. We claimed gold in the recent season and we’re not stopping. We specialize in ZVZ, PvP, and black zone content.">
+        Ми — Honey Pie, українська PvP-гільдія в Albion Online...
       </p>
     </section>
 
     <section id="videos">
-      <h2>Наші відео / Our Videos</h2>
+      <h2 data-uk="Наші відео" data-en="Our Videos">Наші відео</h2>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=UUD9kB0PTnkWykK8mtmFgBJw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=UCD9kB0PTnkWykK8mtmFgBJw" allowfullscreen></iframe>
       </div>
     </section>
 
     <section id="links">
-      <h2>Інші сайти / Other Links</h2>
+      <h2 data-uk="Інші сайти" data-en="Other Links">Інші сайти</h2>
       <p>
-        <a href="https://discord.com/invite/WfsNdzQepa" target="_blank">Discord сервер</a><br>
-        <a href="https://www.youtube.com/channel/UCD9kB0PTnkWykK8mtmFgBJw" target="_blank">YouTube канал</a>
+        <a href="https://discord.com/invite/WfsNdzQepa" target="_blank">Discord</a><br>
+        <a href="https://www.youtube.com/channel/UCD9kB0PTnkWykK8mtmFgBJw" target="_blank">YouTube</a>
       </p>
     </section>
-  </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Honey Pie Guild. Всі права захищено.</p>
   </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+
+    function toggleLanguage() {
+      const elements = document.querySelectorAll('[data-uk]');
+      const currentLang = document.documentElement.lang;
+      const newLang = currentLang === 'uk' ? 'en' : 'uk';
+      document.documentElement.lang = newLang;
+
+      elements.forEach(el => {
+        el.innerText = el.getAttribute(`data-${newLang}`);
+      });
+    }
+  </script>
 </body>
 </html>
