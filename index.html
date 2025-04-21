@@ -143,7 +143,8 @@
       <h2 data-uk="Інші сайти" data-en="Other Links">Інші сайти</h2>
       <p>
         <a href="https://discord.com/invite/WfsNdzQepa" target="_blank">Discord сервер</a><br>
-        <a href="https://www.youtube.com/channel/UCD9kB0PTnkWykK8mtmFgBJw" target="_blank">YouTube канал</a>
+        <a href="https://www.youtube.com/channel/UCD9kB0PTnkWykK8mtmFgBJw" target="_blank">YouTube канал</a><br>
+        <a href="https://europe.albiononline2d.com/pl/scoreboard/guilds/5snLwgnqR1-NbxvYrtO4ZA" target="_blank">Guild Stats (Albion 2D)</a>
       </p>
       <p data-uk="Цей сайт створено для нашої гільдії в Albion Online, щоб ділитися інформацією, відео та корисними посиланнями." 
          data-en="This site is created for our guild in Albion Online to share information, videos, and helpful links.">
@@ -168,7 +169,10 @@
       document.documentElement.lang = newLang;
 
       elements.forEach(el => {
-        el.innerText = el.getAttribute(`data-${newLang}`);
+        const currentContent = el.innerText.trim();
+        const uk = el.getAttribute('data-uk');
+        const en = el.getAttribute('data-en');
+        el.innerText = (newLang === 'uk') ? uk : en;
       });
     }
   </script>
