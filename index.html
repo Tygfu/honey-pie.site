@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Honey Pie Guild</title>
-  <link rel="icon" href="/mnt/data/Avatar (HoneyPie).png" type="image/png">
+  <link rel="icon" href="/mnt/data/042c54b5-35a4-4acd-96fb-10987e7fd846.png" type="image/png">
   <style>
     :root {
       --bg-color: #111;
@@ -23,14 +23,14 @@
       box-sizing: border-box;
     }
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.3s, color 0.3s;
     }
     header {
       background-color: #000;
-      padding: 20px;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -40,29 +40,32 @@
       z-index: 1000;
     }
     header img {
-      height: 50px;
+      height: 40px;
       border-radius: 50%;
     }
     nav {
       display: flex;
-      gap: 20px;
+      gap: 15px;
+      align-items: center;
     }
     nav a {
       color: var(--text-color);
       text-decoration: none;
       font-weight: bold;
+      font-size: 14px;
     }
     nav a:hover {
       color: var(--accent-color);
     }
     section {
-      padding: 80px 20px 40px;
+      padding: 100px 20px 40px;
       max-width: 1000px;
       margin: auto;
     }
     h2 {
       margin-bottom: 20px;
       color: var(--accent-color);
+      font-size: 24px;
     }
     .video-container iframe {
       width: 100%;
@@ -72,18 +75,26 @@
     }
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 30px;
       background-color: #000;
       color: #aaa;
+      font-size: 14px;
     }
     .controls {
       display: flex;
       gap: 10px;
-      margin-left: 20px;
     }
     button {
-      padding: 5px 10px;
+      padding: 5px 8px;
       cursor: pointer;
+      background: none;
+      border: 1px solid var(--accent-color);
+      color: var(--text-color);
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
     }
     @media (max-width: 600px) {
       header {
@@ -99,7 +110,7 @@
 </head>
 <body>
   <header>
-    <img src="/mnt/data/Avatar (HoneyPie).png" alt="Guild Logo">
+    <img src="/mnt/data/042c54b5-35a4-4acd-96fb-10987e7fd846.png" alt="Guild Logo">
     <nav>
       <a href="#home">Головна / Home</a>
       <a href="#about">Про нас / About</a>
@@ -124,15 +135,19 @@
     <section id="videos">
       <h2 data-uk="Наші відео" data-en="Our Videos">Наші відео</h2>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=UCD9kB0PTnkWykK8mtmFgBJw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/videoseries?list=UUd9kB0PTnkWykK8mtmFgBJw" allowfullscreen></iframe>
       </div>
     </section>
 
     <section id="links">
       <h2 data-uk="Інші сайти" data-en="Other Links">Інші сайти</h2>
       <p>
-        <a href="https://discord.com/invite/WfsNdzQepa" target="_blank">Discord</a><br>
-        <a href="https://www.youtube.com/channel/UCD9kB0PTnkWykK8mtmFgBJw" target="_blank">YouTube</a>
+        <a href="https://discord.com/invite/WfsNdzQepa" target="_blank">Discord сервер</a><br>
+        <a href="https://www.youtube.com/channel/UCD9kB0PTnkWykK8mtmFgBJw" target="_blank">YouTube канал</a>
+      </p>
+      <p data-uk="Цей сайт створено для нашої гільдії в Albion Online, щоб ділитися інформацією, відео та корисними посиланнями." 
+         data-en="This site is created for our guild in Albion Online to share information, videos, and helpful links.">
+         Цей сайт створено для нашої гільдії в Albion Online, щоб ділитися інформацією, відео та корисними посиланнями.
       </p>
     </section>
   </main>
